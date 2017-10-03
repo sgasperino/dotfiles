@@ -12,7 +12,7 @@
 	* cowsay
 	* lolcat
 
-### Terminal Setup:
+### Terminal Setup: `chsh -s /bin/zsh`
 1. Clone repo
 2. Install fonts
 3. Install zprezto by running ```git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"```
