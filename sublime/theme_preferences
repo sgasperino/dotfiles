@@ -1,0 +1,5 @@
+{
+    // Default theme
+    "theme": "Material-Theme.sublime-theme",
+    "color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme"
+}
