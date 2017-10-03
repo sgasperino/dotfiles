@@ -1,7 +1,7 @@
 # dotfiles
 
-##Instalation Instructions:
-###Terminal Setup
+## Instalation Instructions:
+### Terminal Setup
 1. Clone repo
 2. Install fonts
 3. Install zprezto by running git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
@@ -12,7 +12,7 @@
 	6b. Change Normal font to "Monaco" 11
 	6c. Change Antialiased font to "Menlo for Powerline" 11
 
-###Sublime Setup
+### Sublime Setup
 1. Install Sublime Text 3
 2. cmd+shift+P "Package Control: Install Package"
 	2a. Search for "Material Theme" and install it
