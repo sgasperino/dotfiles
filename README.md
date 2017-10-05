@@ -11,8 +11,13 @@
 	* fortune
 	* cowsay
 	* lolcat
+	* pipes-sh
+	* cask install amethyst
+	* tty-clock
+	* cmatrix (for configuration go here: https://codeburst.io/install-and-setup-cmatrix-on-mac-a2076daee420)
 
-### Terminal Setup: `chsh -s /bin/zsh`
+### Terminal Setup:
+0. Change shell:  `chsh -s /bin/zsh`
 1. Clone repo
 2. Install fonts
 3. Install zprezto by running ```git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"```
@@ -28,7 +33,7 @@
 2. `cmd+shift+P` "Package Control: Install Package"
 	* Search for "Material Theme" and install it
 	* (For more info on the theme https://packagecontrol.io/packages/Material%20Theme)
-3. Copy /sublime/user_prefernces into preferences
+3. Copy /sublime/user_preferences into preferences
 4. Toggle off Minimap
 5. Toggle off Tabs
 6. Create ability to launch sublime from cmd line ```ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime```
