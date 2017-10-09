@@ -4,6 +4,7 @@
 # Written by Sean Gasperino (10.05.17)
 #
 
+#v0.1
 
 # Set up Shell
 echo "Changing Shell to ZSH"

@@ -23,10 +23,10 @@
 3. Install zprezto by running ```git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"```
 4. Replace .zshrc and .zpreztorc files
 5. Replace ./zprezto/modules and ./zprezto/runcoms with ones from this repo
-6. Change iTerm to "Dark Background" presets
-	* Change "Blue" to RGB 88/134/186
-	* Change Normal font to "Monaco" 11
-	* Change Antialiased font to "Menlo for Powerline" 11
+6. Run iTerm2 profile commands
+	* ```defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/git/dotfiles/iterm2"```
+	
+	* ```defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true```
 
 ### Sublime Setup:
 1. Install Sublime Text 3

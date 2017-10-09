@@ -1,0 +1,16 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"MarkdownLivePreview",
+		"Material Theme",
+		"Package Control",
+		"Puppet",
+		"SublimeLinter-contrib-puppet",
+		"VIM Navigation"
+	]
+}
