@@ -1,0 +1,137 @@
+#!/bin/bash
+
+stCore="corelb.st05.siri.apple.com"
+rdCore="rd13p05si-corelb.siri.apple.com"
+rdmzk="rd13p05si-mzk001.siri.apple.com:4001/v2/keys/corelb/"
+stmzk="mzk001.st05.siri.apple.com:4001/v2/keys/corelb/"
+
+# -f
+function finder(){
+  location=$(dig ${OPTARG} |grep CNAME |awk '{print $5}' |sed 's/.$//g')
+  echo -e "Current Location for ${OPTARG}\n\t${location}\n"
+  if [[ $location = "$rdCore" ]]; then
+    endpoints=$(curl -s -L ${rdmzk}${OPTARG}/endpoints/)
+    echo -e "The endpoints for ${OPTARG} are: \n\t"
+    echo $endpoints |jq . |grep key |grep 'siri.apple.com:' |awk '{print $2}'
+    exit
+  elif [[ $location = "$stCore" ]]; then
+    endpoints=$(curl -s -L ${stmzk}${OPTARG}/endpoints/)
+    echo -e "The endpoints for ${OPTARG} are: \n\t"
+    echo $endpoints |jq . |grep key |grep 'siri.apple.com:' |awk '{print $2}'
+    exit
+  fi
+}
+# -p
+function prediction(){
+  location=$(dig ${OPTARG} |grep CNAME |awk '{print $5}' |sed 's/.$//g')
+  echo -e "Endpoints across both AZ's for ${OPTARG}\n"
+  rd_endpoints=$(curl -s -L ${rdmzk}${OPTARG}/endpoints/)
+  st_endpoints=$(curl -s -L ${stmzk}${OPTARG}/endpoints/)
+  echo -e "REED: \n"
+  echo $rd_endpoints |jq . |grep key |grep 'siri.apple.com:' |awk '{print $2}'
+  echo ""
+  echo -e "STARTOWN: \n"
+  echo $st_endpoints |jq . |grep key |grep 'siri.apple.com:' |awk '{print $2}'
+}
+# -n
+function noop(){
+  location=$(dig ${OPTARG} |grep CNAME |awk '{print $5}' |sed 's/.$//g')
+  echo ""
+  echo -e "Running NOOP\n"
+  echo -e "Current Location and Endpoints for $OPTARG\n\t ${location}\n"
+
+  if [[ $location = "$rdCore" ]]; then
+    endpoints=$(curl -s -L ${rdmzk}${OPTARG}/endpoints/)
+    printf "The endpoints for ${OPTARG} are: \n"
+    echo $endpoints |jq . |grep key |grep 'siri.apple.com:' |awk '{print $2}'
+    echo ""
+    echo -e "Removing from Reed CoreLB\n"
+    echo -e "Adding to Startown CoreLB\n"
+    exit
+  elif [[ $location = "$stCore" ]]; then
+    endpoints=$(curl -s -L ${stmzk}${OPTARG}/endpoints/)
+    echo -e "The endpoints for ${OPTARG} are: \n"
+    echo $endpoints |jq . |grep key |grep 'siri.apple.com:' |awk '{print $2}'
+    echo ""
+    echo -e "Removing from Startown CoreLB\n"
+    echo -e "Adding to Reed CoreLB\n"
+    exit
+  fi
+}
+# -h
+function help(){
+  echo -e "NAME: \n\trailroad - \n\t\tRailroad is a command-line interface for changing the endpoint of our web interfaces. \n\t\t(splunk.siri.apple.com and graphite.siri.apple.com) This allows the changing of the endpoints in a safe and fast manner.\n"
+  echo -e "USAGE:\n\trailroad [options] [arguments]\n"
+  echo -e "VERSION:\n\t[0.1.2]\n"
+  echo -e "AUTHOR(S):\n\tSean Gasperino <sgasperino@apple.com>\n"
+  echo -e "=====================================================\n"
+  echo -e "Options: -f -p -n\n"
+  echo -e "-f: Finder:\n\tLocates the current corelb entry and the endpoints associated with app <foo> \n\n"
+  echo -e "-p: Prediction:\n\tShows all the possible corelb endpoints from all possible AZs.\n\n"
+  echo -e "-n: Noop:\n\tRuns the main function in noop mode, making no changes but showing the actions that would have been taken on a full run.\n\n"
+}
+# -s
+function switch(){
+  location=$(dig ${OPTARG} |grep CNAME |awk '{print $5}' |sed 's/.$//g')
+  read -sp 'Password: '  password
+  echo ""
+  echo -e "${OPTARG} is currently located in : ${location}\n"
+
+
+  if [[ $location = "$rdCore" ]]; then
+    endpoints=$(curl -s -L ${rdmzk}${OPTARG}/endpoints/)
+    printf "The endpoints for ${OPTARG} are: \n"
+    echo $endpoints |jq . |grep key |grep 'siri.apple.com:' |awk '{print $2}'
+    echo ""
+    echo $password | voyager remove-alias --alias ${OPTARG} ${rdCore} 2>/dev/null
+    sleep 5s
+    echo $password | voyager add-alias --alias ${OPTARG} ${stCore} 2>/dev/null
+
+    exit
+  elif [[ $location = "$stCore" ]]; then
+    endpoints=$(curl -s -L ${stmzk}${OPTARG}/endpoints/)
+    echo -e "The endpoints for ${OPTARG} are: \n"
+    echo $endpoints |jq . |grep key |grep 'siri.apple.com:' |awk '{print $2}'
+    echo ""
+    echo $password | voyager remove-alias --alias ${OPTARG} ${stCore} 2>/dev/null
+    sleep 5s
+    echo $password | voyager add-alias --alias ${OPTARG} ${rdCore} 2>/dev/null
+
+    exit
+  else
+    noRecord
+  fi
+}
+
+function noRecord(){
+  echo "ERROR: ${OPTARG} not in CoreLB!"
+  exit
+}
+
+while getopts ":hf:p:n:s:" opt; do
+  case $opt in
+    f)
+      finder
+      ;;
+    p)
+      prediction
+      ;;
+    n)
+      noop
+      ;;
+    h)
+      help
+      ;;
+    s)
+      switch
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -$OPTARG requires an app name." >&2
+      exit 1
+      ;;
+  esac
+done

@@ -19,4 +19,5 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias tclock='tty-clock -tsc'
 fortune|cowsay|lolcat
