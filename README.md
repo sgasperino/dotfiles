@@ -37,3 +37,7 @@
 4. Toggle off Minimap
 5. Toggle off Tabs
 6. Create ability to launch sublime from cmd line ```ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime```
+
+### Odds and Ends:
+1. Turn off special character key repeat: defaults write -g ApplePressAndHoldEnabled -bool false
+2. 
