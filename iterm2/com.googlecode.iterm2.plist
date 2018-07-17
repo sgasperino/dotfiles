@@ -6,6 +6,8 @@
 	<true/>
 	<key>AboutToPasteTabsWithCancel_selection</key>
 	<integer>2</integer>
+	<key>AllowClipboardAccess</key>
+	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -16,8 +18,20 @@
 	<integer>1</integer>
 	<key>AppleWindowTabbingMode</key>
 	<string>manual</string>
+	<key>AutoHideTmuxClientSession</key>
+	<true/>
+	<key>ClosingTmuxTabKillsTmuxWindows</key>
+	<true/>
+	<key>ClosingTmuxTabKillsTmuxWindows_selection</key>
+	<integer>1</integer>
+	<key>ClosingTmuxWindowKillsTmuxWindows</key>
+	<true/>
+	<key>ClosingTmuxWindowKillsTmuxWindows_selection</key>
+	<integer>2</integer>
 	<key>Control</key>
 	<integer>1</integer>
+	<key>CopyLastNewline</key>
+	<false/>
 	<key>CopySelection</key>
 	<false/>
 	<key>Custom Color Presets</key>
@@ -1103,6 +1117,10 @@
 	<string>Puppet</string>
 	<key>Default Bookmark Guid</key>
 	<string>3EE8E8B6-3678-4568-BA3C-C01AB64CA13A</string>
+	<key>DeleteProfile_SilenceUntil</key>
+	<real>548362894.32666004</real>
+	<key>DeleteProfile_selection</key>
+	<integer>0</integer>
 	<key>DimInactiveSplitPanes</key>
 	<false/>
 	<key>EnableDivisionView</key>
@@ -1114,11 +1132,11 @@
 	<key>HideMenuBarInFullscreen</key>
 	<true/>
 	<key>HideScrollbar</key>
-	<true/>
+	<false/>
 	<key>HideTab</key>
 	<true/>
 	<key>HideTabCloseButton</key>
-	<true/>
+	<false/>
 	<key>HideTabNumber</key>
 	<true/>
 	<key>HotKeyBookmark</key>
@@ -1126,23 +1144,19 @@
 	<key>HotKeyTogglesWindow</key>
 	<true/>
 	<key>Hotkey</key>
-	<true/>
+	<false/>
 	<key>HotkeyChar</key>
-	<integer>104</integer>
+	<integer>27</integer>
 	<key>HotkeyCode</key>
-	<integer>4</integer>
+	<integer>53</integer>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>HotkeyModifiers</key>
-	<integer>262401</integer>
+	<integer>256</integer>
+	<key>JobName</key>
+	<false/>
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
-	<key>NSFontPanelAttributes</key>
-	<string>1, 0</string>
-	<key>NSNavLastRootDirectory</key>
-	<string>~/Downloads/nord-iterm2-develop/src/xml</string>
-	<key>NSNavPanelExpandedSizeForOpenMode</key>
-	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -1174,31 +1188,20 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
-	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
-	<dict>
-		<key>TB Is Shown</key>
-		<integer>1</integer>
-	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>277 33 717 418 0 0 1920 1080 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>530 493 620 392 0 0 1680 1050 </string>
+	<string>-850 1129 620 392 -1080 0 1080 1898 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-1334 548 796 473 -1920 0 1920 1080 </string>
+	<string>-995 201 796 473 -1080 -453 1080 1898 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1920 1080 0 0 1920 1080 </string>
+	<string>8 11 1910 1040 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 0 1900 1054 0 0 1680 1050 </string>
+	<string>939 133 790 700 0 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>-1912 18 822 1024 -1920 0 1920 1080 </string>
-	<key>NSWindow Frame iTerm Window 3</key>
-	<string>1268 535 402 244 0 0 1680 1050 </string>
-	<key>NSWindow Frame iTerm Window 4</key>
-	<string>-1072 798 402 244 -1920 0 1920 1080 </string>
-	<key>NSWindow Frame iTerm Window 5</key>
-	<string>-1072 535 822 244 -1920 0 1920 1080 </string>
-	<key>NSWindow Frame iTerm Window 6</key>
-	<string>-1072 18 822 499 -1920 0 1920 1080 </string>
+	<string>968 545 944 505 0 0 1920 1058 </string>
+	<key>NeverWarnAboutShortLivedSessions_3EE8E8B6-3678-4568-BA3C-C01AB64CA13A</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_3EE8E8B6-3678-4568-BA3C-C01AB64CA13A_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1464,7 +1467,7 @@
 			<key>Columns</key>
 			<integer>110</integer>
 			<key>Command</key>
-			<string></string>
+			<string>tmux -CC</string>
 			<key>Cursor Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -1841,7 +1844,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MonacoForPowerlineNerdFontComplete 11</string>
+			<string>Menlo-Regular 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1887,7 +1890,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.050485802664974655</real>
+			<real>0.0</real>
 			<key>Unicode Normalization</key>
 			<integer>0</integer>
 			<key>Unlimited Scrollback</key>
@@ -1907,7 +1910,7 @@
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>12</integer>
+			<integer>0</integer>
 			<key>Working Directory</key>
 			<string>/Users/sgasperino</string>
 		</dict>
@@ -2154,14 +2157,10 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
-			<key>Blend</key>
-			<real>0.5</real>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
-			<true/>
-			<key>Blur Radius</key>
-			<real>2</real>
+			<false/>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -2236,35 +2235,9 @@
 				<real>0.7803921568627451</real>
 			</dict>
 			<key>Guid</key>
-			<string>083D8028-849B-43D6-96F8-06497EE905B0</string>
-			<key>Has Hotkey</key>
-			<true/>
+			<string>728392BB-BA8D-426F-A58C-A76585EF6C51</string>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
-			<key>HotKey Activated By Modifier</key>
-			<true/>
-			<key>HotKey Alternate Shortcuts</key>
-			<array/>
-			<key>HotKey Characters</key>
-			<string></string>
-			<key>HotKey Characters Ignoring Modifiers</key>
-			<string></string>
-			<key>HotKey Key Code</key>
-			<integer>0</integer>
-			<key>HotKey Modifier Activation</key>
-			<integer>0</integer>
-			<key>HotKey Modifier Flags</key>
-			<integer>0</integer>
-			<key>HotKey Window Animates</key>
-			<true/>
-			<key>HotKey Window AutoHides</key>
-			<false/>
-			<key>HotKey Window Dock Click Action</key>
-			<integer>1</integer>
-			<key>HotKey Window Floats</key>
-			<false/>
-			<key>HotKey Window Reopens On Activation</key>
-			<false/>
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Jobs to Ignore</key>
@@ -2575,7 +2548,7 @@
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
-			<string>Hotkey Window</string>
+			<string>tmux</string>
 			<key>Non Ascii Font</key>
 			<string>MenloForPowerline-Regular 11</string>
 			<key>Non-ASCII Anti Aliased</key>
@@ -2589,9 +2562,9 @@
 			<key>Right Option Key Sends</key>
 			<integer>0</integer>
 			<key>Rows</key>
-			<integer>25</integer>
+			<integer>50</integer>
 			<key>Screen</key>
-			<integer>-2</integer>
+			<integer>-1</integer>
 			<key>Scrollback Lines</key>
 			<integer>1000</integer>
 			<key>Selected Text Color</key>
@@ -2620,8 +2593,6 @@
 			<true/>
 			<key>Silence Bell</key>
 			<false/>
-			<key>Space</key>
-			<integer>-1</integer>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -2629,7 +2600,7 @@
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
 			<key>Transparency</key>
-			<real>0.042865640862944164</real>
+			<real>0.050485802664974655</real>
 			<key>Unicode Normalization</key>
 			<integer>0</integer>
 			<key>Unlimited Scrollback</key>
@@ -2649,29 +2620,43 @@
 			<key>Visual Bell</key>
 			<true/>
 			<key>Window Type</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>Working Directory</key>
 			<string>/Users/sgasperino</string>
 		</dict>
 	</array>
+	<key>NoSyncAutoBurialReveal</key>
+	<true/>
+	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>981FA7BB-F642-492F-B074-7C9A9A4B8F25</string>
+	<string>7796E1C2-85EF-49F4-8566-DBCFD6B0C181</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>1</integer>
+	<integer>0</integer>
+	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux</key>
+	<true/>
+	<key>NoSyncNewWindowOrTabFromTmuxOpensTmux_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
+	<key>NoSyncSuppressBroadcastInputWarning</key>
+	<true/>
+	<key>NoSyncSuppressBroadcastInputWarning_selection</key>
+	<integer>0</integer>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>530724260.95213002</real>
+	<real>548036355.48035705</real>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
-	<true/>
+	<false/>
+	<key>OpenTmuxWindowsIn</key>
+	<integer>2</integer>
 	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PasteTabToStringTabStopSize</key>
@@ -2720,31 +2705,49 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=44</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=43</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-05-14T13:24:27Z</date>
+	<date>2018-07-17T12:23:21Z</date>
 	<key>SUSendProfileInfo</key>
+	<false/>
+	<key>SavePasteHistory</key>
+	<true/>
+	<key>ShowBookmarkName</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
 	<true/>
 	<key>ShowNewOutputIndicator</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
-	<true/>
+	<false/>
 	<key>StretchTabsToFillBar</key>
 	<false/>
+	<key>SwitchTabModifier</key>
+	<integer>4</integer>
 	<key>TabStyle</key>
 	<integer>1</integer>
 	<key>TabViewType</key>
-	<integer>0</integer>
+	<integer>1</integer>
+	<key>TerminalMargin</key>
+	<integer>10</integer>
+	<key>TerminalVMargin</key>
+	<integer>2</integer>
+	<key>ToolbeltTools</key>
+	<array>
+		<string>Jobs</string>
+	</array>
 	<key>UseBorder</key>
 	<false/>
 	<key>Window Arrangements</key>
 	<dict/>
+	<key>WindowNumber</key>
+	<false/>
+	<key>WordCharacters</key>
+	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.1.6</string>
+	<string>3.1.7</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>2</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
